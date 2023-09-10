@@ -1,10 +1,10 @@
 package uz.pdp.warehousedatarest.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @Entity(name = "users")
@@ -26,12 +26,11 @@ public class User {
     private String password;
 
     @Column(nullable = false, unique = true)
-    private String code;
+    private String code = UUID.randomUUID().toString();
 
     @Column(nullable = false)
     private Boolean isActive = false;
 
-    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Warehouse> warehouses;
 }

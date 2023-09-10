@@ -15,10 +15,10 @@ public class IOEntity {
     @Column(nullable = false)
     private Timestamp date;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Warehouse warehouse;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Currency currency;
 
     @Column(nullable = false)

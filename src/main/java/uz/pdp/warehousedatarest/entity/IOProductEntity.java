@@ -10,7 +10,7 @@ public class IOProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Product product;
 
     @Column(nullable = false)

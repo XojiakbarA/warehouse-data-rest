@@ -1,6 +1,5 @@
 package uz.pdp.warehousedatarest.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,14 +23,12 @@ public class Category {
     @ManyToOne
     private Category parentCategory;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "parentCategory", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Category> subCategories;
 
     @Column(nullable = false)
     private Boolean isActive = false;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Product> products;
 }

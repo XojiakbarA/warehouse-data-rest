@@ -1,6 +1,5 @@
 package uz.pdp.warehousedatarest.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,11 +19,9 @@ public class Attachment {
     @Column(nullable = false)
     private String contentType;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "photo", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "attachment", fetch = FetchType.LAZY)
     private Product product;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "attachment", optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "attachment", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private AttachmentContent attachmentContent;
 }

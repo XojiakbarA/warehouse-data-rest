@@ -15,6 +15,6 @@ public class InputProduct extends IOProductEntity {
     @Column(nullable = false)
     private Date expireDate;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Input input;
 }

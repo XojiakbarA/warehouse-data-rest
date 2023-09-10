@@ -12,6 +12,6 @@ public class AttachmentContent {
 
     private byte[] bytes;
 
-    @OneToOne(optional = false)
+    @OneToOne
     private Attachment attachment;
 }
